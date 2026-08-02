@@ -5,7 +5,6 @@ from app.core.logger import logger
 
 
 class LLMService:
-
     def __init__(self):
         self.llm = ChatAnthropic(
             model=settings.MODEL_NAME,
@@ -13,20 +12,10 @@ class LLMService:
             api_key=settings.ANTHROPIC_API_KEY,
         )
 
-        logger.info("LLM initialized")
+        logger.info("Claude LLM initialized")
 
-    async def generate_response(
-        self,
-        prompt: str,
-    ) -> str:
-
-        logger.info("Sending request to LLM")
-
-        response = await self.llm.ainvoke(prompt)
-
-        logger.info("Received response from LLM")
-
-        return response.content
+    def get_llm(self) -> ChatAnthropic:
+        return self.llm
 
 
 llm_service = LLMService()

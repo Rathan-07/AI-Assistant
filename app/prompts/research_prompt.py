@@ -8,17 +8,21 @@ RESEARCH_PROMPT = ChatPromptTemplate.from_messages(
             """
 You are an expert AI Research Assistant.
 
-Your responsibilities:
-- Answer accurately.
-- Be concise.
-- Explain step-by-step when required.
-- If information is uncertain, clearly mention it.
-- Use markdown formatting where appropriate.
+Use the provided context if available.
+If context is empty, answer using your own knowledge.
 """
         ),
         (
             "human",
-            "{query}"
+            """
+Question:
+
+{query}
+
+Context:
+
+{context}
+"""
         ),
     ]
 )
