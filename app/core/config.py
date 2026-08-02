@@ -8,9 +8,9 @@ class Settings(BaseSettings):
     APP_NAME: str = "Research Agent"
     APP_VERSION: str = "1.0.0"
 
-    # OpenAI
-    OPENAI_API_KEY: str
-    MODEL_NAME: str = "gpt-4.1-mini"
+    # Anthropic
+    ANTHROPIC_API_KEY: str
+    MODEL_NAME: str = "claude-haiku-4-5-20251001"
     TEMPERATURE: float = 0.2
 
     # Directories
