@@ -1,13 +1,17 @@
 from fastapi import FastAPI
 
+from app.core.config import settings
+
 app = FastAPI(
-    title="Research Agent API",
-    version="1.0.0"
+    title=settings.APP_NAME,
+    version=settings.APP_VERSION,
 )
 
 
 @app.get("/")
 async def home():
     return {
-        "message": "Research Agent Running 🚀"
+        "app": settings.APP_NAME,
+        "model": settings.MODEL_NAME,
+        "version": settings.APP_VERSION,
     }
